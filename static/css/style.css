@@ -3,9 +3,9 @@
 font-family: 'Heebo', sans-serif; */
 :root {
   --primaryColor: #0a042c;
-  --primaryDarkColor: #110432;
+  --primaryDarkColor: #04020b;
   --primaryHoverColor: #100357;
-  --secondaryColor: #13355e;
+  --secondaryColor: #f4f9ff;
   --baseColor: #030a1f;
   --baseFont: 'Heebo', sans-serif;
   --titleFont: 'Courier Prime', monospace;
@@ -13,7 +13,7 @@ font-family: 'Heebo', sans-serif; */
   --medium: 500;
   --bold: 700;
   --black: 900;
-  --lightBg: #F1F1F1;
+  --lightBg: #f1f1f1;
 }
 html {
   scroll-behavior: smooth;
@@ -320,7 +320,7 @@ a, .btn {
 	border-radius: 3px;
 }
 .progressStyle .progress-bar {
-	background-color: rgb(182, 185, 239);
+	background-color: rgb(11, 15, 78);
 	border-radius: 3px;
 }
 .progressCol + .progressCol {
