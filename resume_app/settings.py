@@ -74,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'resume_app.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -126,8 +125,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'media')
 ]
-STATICFILES_STORAGE =  'django.contrib.staticfiles.storage.StaticFilesStorage' 
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
