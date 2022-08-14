@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from .models import (
 		UserProfile,
-		Blog,
+		Project,
 		Portfolio,
 		Testimonial,
 		Certificate
@@ -22,12 +22,12 @@ class IndexView(generic.TemplateView):
 		
 		testimonials = Testimonial.objects.filter(is_active=True)
 		certificates = Certificate.objects.filter(is_active=True)
-		blogs = Blog.objects.filter(is_active=True)
+		projects = Project.objects.filter(is_active=True)
 		portfolio = Portfolio.objects.filter(is_active=True)
 		
 		context["testimonials"] = testimonials
 		context["certificates"] = certificates
-		context["blogs"] = blogs
+		context["projects"] = projects
 		context["portfolio"] = portfolio
 		return context
 
@@ -56,15 +56,18 @@ class PortfolioDetailView(generic.DetailView):
 	model = Portfolio
 	template_name = "main/portfolio-detail.html"
 
-class BlogView(generic.ListView):
-	model = Blog
-	template_name = "main/blog.html"
+class ProjectView(generic.ListView):
+	model = Project
+	template_name = "main/project.html"
 	paginate_by = 10
+
 	
 	def get_queryset(self):
 		return super().get_queryset().filter(is_active=True)
 
 
-class BlogDetailView(generic.DetailView):
-	model = Blog
-	template_name = "main/blog-detail.html"
+class ProjectDetailView(generic.DetailView):
+	model = Project
+	
+	template_name = "main/project-detail.html"
+	

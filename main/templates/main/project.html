@@ -1,4 +1,4 @@
-{% extends 'main/base.html' %}
+<!-- {% extends 'main/base.html' %} -->
 {% load static %}
 
 <!-- ================================
@@ -37,7 +37,7 @@ Start Content
       <div class="row g-4 g-md-3  align-items-center">
         <div class="col-md-6">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-md-3">See my recent blogs below</h1>
+            <h1 class="xlTitle pb-md-3">Some of my recent Projects</h1>
           </div>
         </div>
       </div>
@@ -49,11 +49,11 @@ Start Content
   <div class="lightBg">
     <div class="container">
       <div class="portfolioContentMain">
-        <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+        <div class="row g-3 g-md g-lg-5 portfolioRow">
           {% for obj in object_list %}
           <div class="col-md-6 pColMain">
-            <div class="pCol">
-              <a href="{% url 'main:blog' slug=obj.slug %}" >
+            <div class="Col">
+              <a href="{% url 'main:project' slug=obj.slug %}" >
               <img src="{{obj.image.url}}" alt="..." class="pImg">
               </a>
             </div>
@@ -65,6 +65,26 @@ Start Content
     </div>
   </div>
 </section>
+<div class ="col-md-9">
+  <div class ="row">
+      {% for photo in image %}
+      <div class ="col-md-4">
+          <div class="card">
+              <img class="image-thumbail" 
+              src="{{photo.image.url}}" 
+              alt="Card image cap">
+
+                  <div class="card-body">
+                   <small>Category:{{ photo.category.name }}</small>
+                  </div>
+                  <a href ="{%url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
+                  </div>
+              </div> 
+      {% empty %}
+      <h3>No Photos...</h3>
+      {% endfor %}
+  </div>
+</div>
 <!-- ================================
 End Content
 ================================= -->

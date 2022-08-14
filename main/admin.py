@@ -5,7 +5,7 @@ from . models import (
     Testimonial,
     Media,
     Portfolio,
-    Blog,
+    Project,
     Certificate,
     Skill
     )
@@ -32,8 +32,8 @@ class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
     readonly_fields = ('slug',)
 
-@admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+@admin.register(Project)
+class ProjectAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
     readonly_fields = ('slug',)
 

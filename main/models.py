@@ -112,11 +112,11 @@ class Portfolio(models.Model):
         return f"/portfolio/{self.slug}"
 
 
-class Blog(models.Model):
+class Project(models.Model):
 
     class Meta:
-        verbose_name_plural = 'Blog Profiles'
-        verbose_name = 'Blog'
+        verbose_name_plural = 'Projects '
+        verbose_name = 'Project'
         ordering = ["timestamp"]
 
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -125,19 +125,20 @@ class Blog(models.Model):
     description = models.CharField(max_length=500, blank=True, null=True)
     body = RichTextField(blank=True, null=True)
     slug = models.SlugField(null=True, blank=True)
-    image = models.ImageField(blank=True, null=True, upload_to="blog")
+    image = models.ImageField(blank=True, null=True, upload_to="project")
     is_active = models.BooleanField(default=True)
+
 
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.name)
-        super(Blog, self).save(*args, **kwargs)
+        super(Project, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
-        return f"/blog/{self.slug}"
+        return f"/project/{self.slug}"
 
 
 class Certificate(models.Model):
@@ -151,7 +152,8 @@ class Certificate(models.Model):
     title = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)
-
+    linkto=models.TextField(blank=True, null=True)
+    
     def __str__(self):
         return self.name
 
